@@ -43,7 +43,7 @@ class MainHandler(webapp2.RequestHandler):
                 <label>Model: </label><input type="text" name="carmodelfour" required>
                 <label>Year: </label><input type="text" name="caryearfour" required>
                 <label>Price: </label><input type="text" name="carpricefour" required>
-                <input type="submit" value="Submit" /></br>
+                <input type="submit" value="Submit" onclick="carValidate()" /></br>
                 </form>"""
 
         if self.request.GET:
@@ -53,30 +53,30 @@ class MainHandler(webapp2.RequestHandler):
             md1.model = self.request.GET['carmodelone']
             md1.year = self.request.GET['caryearone']# actually calling function
             md1.price = self.request.GET['carpriceone']
-            lib.add_movie(md1)
+            lib.add_car(md1)
 
             md2 = CarData()
             md2.make = self.request.GET['carmaketwo']
             md2.model = self.request.GET['carmodeltwo']
             md2.year = self.request.GET['caryeartwo']  # actually calling function
             md2.price = self.request.GET['carpricetwo']
-            lib.add_movie(md2)
+            lib.add_car(md2)
 
             md3 = CarData()
             md3.make = self.request.GET['carmakethree']
             md3.model = self.request.GET['carmodelthree']
             md3.year = self.request.GET['caryearthree']  # actually calling function
             md3.price = self.request.GET['carpricethree']
-            lib.add_movie(md3)
+            lib.add_car(md3)
 
             md4 = CarData()
             md4.make = self.request.GET['carmakefour']
             md4.model = self.request.GET['carmodelfour']
             md4.year = self.request.GET['caryearfour']  # actually calling function
             md4.price = self.request.GET['carpricefour']
-            lib.add_movie(md4)
+            lib.add_car(md4)
 
-            p.body = lib.compile_list() + lib.calc_time_span()
+            p.body = lib.compile_list() + lib.calc_price()
             self.response.write(p.print_out())
         else:
             self.response.write(p.print_out())

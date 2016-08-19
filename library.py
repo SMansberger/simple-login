@@ -1,32 +1,29 @@
 class FavoriteMovies(object):
     def __init__(self):
+        #array to hold list of cars
         self.__car_list = []
-        #create array to hold movie information
-        #create method to add to array
-        #generate list of movies
-        #calculate time between movies
 
-    def add_movie(self, m):
+    #adds cars to array
+    def add_car(self, m):
         self.__car_list.append(m)
         print m.make
 
+    #lists out cars from gathered inputs
     def compile_list(self):
         output = ''
         for car in self.__car_list: #for each movie in array
             output += 'Make: ' + car.make + ' Model: ' + car.model + ' Year: ' + str(car.year) + ' Price: ' + car.price + '<br />'
         return output
 
-    def calc_time_span(self):
+    def calc_price(self):
         #years
         years = []
-        for movie in self.__car_list:
-            years.append(movie.year)
-        #sort years
-        years.sort()
-
+        for car in self.__car_list:
+            years.append(car.price)
+        
         #subtract lowest year from highest
-        num = len(years) - 1
-        span = years[num] - years[0]
+        # num = len(years) - 1
+        # span = years[num] - years[0]
 
         return 'The time between the oldest and newest film entered is ' + str(span)
 

@@ -14,7 +14,21 @@ class Page(object):
 
         self.body = ""
         self.__close = """
+    <script>
+    function carValidate() {
+        var x, text;
 
+        // Get the value of the input field with id="numb"
+        x = document.getElementById("caryearone").value;
+
+        if (isNaN(x) || x < 1 || x > 2018) {
+            text = "Input not valid";
+        } else {
+            text = "Input OK";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+    </script>
 
             </body>
         </html>"""
