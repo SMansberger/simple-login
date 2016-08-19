@@ -1,25 +1,25 @@
 class FavoriteMovies(object):
     def __init__(self):
-        self.__movie_list = []
+        self.__car_list = []
         #create array to hold movie information
         #create method to add to array
         #generate list of movies
         #calculate time between movies
 
     def add_movie(self, m):
-        self.__movie_list.append(m)
-        print m.title
+        self.__car_list.append(m)
+        print m.make
 
     def compile_list(self):
         output = ''
-        for movie in self.__movie_list: #for each movie in array
-            output += 'Title: ' + movie.title + ' (' + str(movie.year) + '). Directed by: ' + movie.director + '<br />'
+        for car in self.__car_list: #for each movie in array
+            output += 'Make: ' + car.make + ' Model: ' + car.model + ' Year: ' + str(car.year) + ' Price: ' + car.price + '<br />'
         return output
 
     def calc_time_span(self):
         #years
         years = []
-        for movie in self.__movie_list:
+        for movie in self.__car_list:
             years.append(movie.year)
         #sort years
         years.sort()
@@ -34,9 +34,10 @@ class FavoriteMovies(object):
 
 class CarData(object): #Data Object
     def __init__(self):
-        self.title = ''
+        self.make = ''
+        self.model = ''
         self.__year = 0
-        self.director = ''
+        self.price = ''
 
     @property
     def year(self):

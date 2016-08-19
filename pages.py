@@ -14,6 +14,8 @@ class Page(object):
 
         self.body = ""
         self.__close = """
+
+
             </body>
         </html>"""
 

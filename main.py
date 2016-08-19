@@ -16,67 +16,70 @@ class MainHandler(webapp2.RequestHandler):
         p = Page()
         lib = FavoriteMovies()
 
-        p.body = """<form method="GET">
-                <label>Make: </label><input type="text" name="carmakeone" />
-                <label>Model: </label><input type="text" name="carmodelone" />
-                <label>Year: </label><input type="text" name="caryearone" />
-                <label>Price: </label><input type="text" name="carpriceone" />
-                <input type="submit" value="Submit" />
+        p.body = """<form name="carForm" method="GET">
+                <h2>Car One</h2>
+                <label>Make: </label><input type="text" name="carmakeone" required>
+                <label>Model: </label><input type="text" name="carmodelone" required>
+                <label>Year: </label><input type="text" name="caryearone" required>
+                <label>Price: </label><input type="text" name="carpriceone" required>
+                <input type="submit" value="Submit" /></br>
+
+                <h2>Car Two</h2>
+                <label>Make: </label><input type="text" name="carmaketwo" required>
+                <label>Model: </label><input type="text" name="carmodeltwo" required>
+                <label>Year: </label><input type="text" name="caryeartwo" required>
+                <label>Price: </label><input type="text" name="carpricetwo" required>
+                <input type="submit" value="Submit" /></br>
+
+                <h2>Car Three</h2>
+                <label>Make: </label><input type="text" name="carmakethree" required>
+                <label>Model: </label><input type="text" name="carmodelthree" required>
+                <label>Year: </label><input type="text" name="caryearthree" required>
+                <label>Price: </label><input type="text" name="carpricethree" required>
+                <input type="submit" value="Submit" /></br>
+
+                <h2>Car Four</h2>
+                <label>Make: </label><input type="text" name="carmakefour" required>
+                <label>Model: </label><input type="text" name="carmodelfour" required>
+                <label>Year: </label><input type="text" name="caryearfour" required>
+                <label>Price: </label><input type="text" name="carpricefour" required>
+                <input type="submit" value="Submit" /></br>
                 </form>"""
+
         if self.request.GET:
 
             md1 = CarData()
-            md1.title = self.request.GET['carmakeone']
-            md1.year = 1987  # actually calling function
-            md1.director = "Rob Reiner"
+            md1.make = self.request.GET['carmakeone']
+            md1.model = self.request.GET['carmodelone']
+            md1.year = self.request.GET['caryearone']# actually calling function
+            md1.price = self.request.GET['carpriceone']
             lib.add_movie(md1)
 
             md2 = CarData()
-            md2.title = "The Dark Knight"
-            md2.year = 2008  # actually calling function
-            md2.director = "Christopher Nolan"
+            md2.make = self.request.GET['carmaketwo']
+            md2.model = self.request.GET['carmodeltwo']
+            md2.year = self.request.GET['caryeartwo']  # actually calling function
+            md2.price = self.request.GET['carpricetwo']
             lib.add_movie(md2)
-f
+
             md3 = CarData()
-            md3.title = "Star Wars"
-            md3.year = 1977  # actually calling function
-            md3.director = "George Lucas"
+            md3.make = self.request.GET['carmakethree']
+            md3.model = self.request.GET['carmodelthree']
+            md3.year = self.request.GET['caryearthree']  # actually calling function
+            md3.price = self.request.GET['carpricethree']
             lib.add_movie(md3)
-            #p.body = lib.compile_list() + lib.calc_time_span()
+
+            md4 = CarData()
+            md4.make = self.request.GET['carmakefour']
+            md4.model = self.request.GET['carmodelfour']
+            md4.year = self.request.GET['caryearfour']  # actually calling function
+            md4.price = self.request.GET['carpricefour']
+            lib.add_movie(md4)
+
+            p.body = lib.compile_list() + lib.calc_time_span()
             self.response.write(p.print_out())
         else:
             self.response.write(p.print_out())
-        # page_head = '''
-        # <!DOCTYPE HTML>
-        # <html>
-        #     <head>
-        #         <title>Enter your information:</title>
-        #         <link href="css/styles.css" rel="stylesheet" type="text/css" />
-        #     </head>
-        #     <body>'''
-        #
-        # # page_body = '''<form method="GET">
-        # #             <label>Name: </label><input type="text" name="user" />
-        # #             <label>Email:</label><input type="text" name="email" />
-        # #             <input type="submit" value="Submit" />'''
-        # page_body = '''
-        # <a href="?email=mickey@disney.com&user="Mickey">Mickey</a><br/>
-        # <a href="?email=donald@disney.com&user=Donald">Donald</a><br/>
-        # <a href="?email=minnie@disney.com&user=Minnie">Minnie</a><br/>
-        # <a href="?email=pluto@disney.com&user=Pluto">Pluto</a><br/>
-        # '''
-        # page_close = '''
-        #         </form>
-        #     </body>
-        # </html>'''
-        # if self.request.GET:
-        #     user = self.request.GET['user']
-        #     email = self.request.GET['email']
-        #     self.response.write(page_head + user + ' ' + email + page_close)
-        # else:
-        #     self.response.write(page_head + page_body + page_close)
-        #
-        # #self.response.write(page) #printing information
 
 
 app = webapp2.WSGIApplication([
