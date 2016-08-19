@@ -1,4 +1,4 @@
-class FavoriteMovies(object):
+class InputCars(object):
     def __init__(self):
         #array to hold list of cars
         self.__car_list = []
@@ -11,23 +11,20 @@ class FavoriteMovies(object):
     #lists out cars from gathered inputs
     def compile_list(self):
         output = ''
-        for car in self.__car_list: #for each movie in array
+        for car in self.__car_list:
             output += 'Make: ' + car.make + ' Model: ' + car.model + ' Year: ' + str(car.year) + ' Price: ' + car.price + '<br />'
         return output
 
     def calc_price(self):
         #years
-        years = []
+        price = []
         for car in self.__car_list:
-            years.append(car.price)
-        
-        #subtract lowest year from highest
-        # num = len(years) - 1
-        # span = years[num] - years[0]
+            price.append(car.price)
 
-        return 'The time between the oldest and newest film entered is ' + str(span)
+        #determines highest priced car from car prices passed to array
+        highestprice = max(price)
 
-        #return span
+        return 'The most expensive car you own costs ' + str(highestprice) + "!"
 
 class CarData(object): #Data Object
     def __init__(self):
