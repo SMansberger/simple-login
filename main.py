@@ -21,25 +21,29 @@ class MainHandler(webapp2.RequestHandler):
         # year movie was made
         # director of the film
         md1 = MovieData()
-        md1.title = "The Princess Bride"
-        md1.year = 1987 #actually calling function
+        md1.title = self.request.GET['user']
+        md1.year = self.request.GET['year']
         md1.director = "Rob Reiner"
         lib.add_movie(md1)
 
-        md2 = MovieData()
-        md2.title = "The Dark Knight"
-        md2.year = 2008  # actually calling function
-        md2.director = "Christopher Nolan"
-        lib.add_movie(md2)
+        # md2 = MovieData()
+        # md2.title = "The Dark Knight"
+        # md2.year = 2008  # actually calling function
+        # md2.director = "Christopher Nolan"
+        # lib.add_movie(md2)
+        #
+        # md3 = MovieData()
+        # md3.title = "Star Wars"
+        # md3.year = 1977  # actually calling function
+        # md3.director = "George Lucas"
+        # lib.add_movie(md3)
 
-        md3 = MovieData()
-        md3.title = "Star Wars"
-        md3.year = 1977  # actually calling function
-        md3.director = "George Lucas"
-        lib.add_movie(md3)
-
-
-        p.body = lib.compile_list() + lib.calc_time_span()
+        p.body = """
+        <form method="GET">
+        <label>Name: </label><input type="text" name="user" />
+        <label>Year: </label><input type="text" name="year" />
+        <label>Email:</label><input type="text" name="email" />
+        <input type="submit" value="Submit" />""" + lib.compile_list() + lib.calc_time_span()
         self.response.write(p.print_out())
 
 
@@ -56,16 +60,8 @@ class MainHandler(webapp2.RequestHandler):
         # #             <label>Name: </label><input type="text" name="user" />
         # #             <label>Email:</label><input type="text" name="email" />
         # #             <input type="submit" value="Submit" />'''
-        # page_body = '''
-        # <a href="?email=mickey@disney.com&user="Mickey">Mickey</a><br/>
-        # <a href="?email=donald@disney.com&user=Donald">Donald</a><br/>
-        # <a href="?email=minnie@disney.com&user=Minnie">Minnie</a><br/>
-        # <a href="?email=pluto@disney.com&user=Pluto">Pluto</a><br/>
-        # '''
-        # page_close = '''
-        #         </form>
-        #     </body>
-        # </html>'''
+        #
+
         # if self.request.GET:
         #     user = self.request.GET['user']
         #     email = self.request.GET['email']

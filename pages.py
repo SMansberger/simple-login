@@ -12,15 +12,11 @@ class Page(object):
     <body>
         """
         
-        self.body = '''
-        <form method="GET">
-        <label>Name: </label><input type="text" name="user" />
-        <label>Email:</label><input type="text" name="email" />
-        <input type="submit" value="Submit" />'''
-        self.__close = '''
+        self.body = ""
+        self.__close = """
                 </form>
             </body>
-        </html>'''
+        </html>"""
 
     def print_out(self):
         everything = self.__head + self.body + self.__close
