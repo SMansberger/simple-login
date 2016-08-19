@@ -22,28 +22,28 @@ class MainHandler(webapp2.RequestHandler):
                 <label>Model: </label><input type="text" name="carmodelone" required>
                 <label>Year: </label><input type="number" name="caryearone" required>
                 <label>Price: </label><input type="number" name="carpriceone" required>
-                <input type="submit" value="Submit" onclick="carValidate()" /></br>
+                <input type="submit" class="submitButton" value="Submit" onclick="carValidate()" /></br>
 
                 <h2>Car Two</h2>
                 <label>Make: </label><input type="text" name="carmaketwo" required>
                 <label>Model: </label><input type="text" name="carmodeltwo" required>
                 <label>Year: </label><input type="number" name="caryeartwo" required>
                 <label>Price: </label><input type="number" name="carpricetwo" required>
-                <input type="submit" value="Submit" onclick="carValidate()" /></br>
+                <input type="submit" class="submitButton" value="Submit" onclick="carValidate()" /></br>
 
                 <h2>Car Three</h2>
                 <label>Make: </label><input type="text" name="carmakethree" required>
                 <label>Model: </label><input type="text" name="carmodelthree" required>
                 <label>Year: </label><input type="number" name="caryearthree" required>
                 <label>Price: </label><input type="number" name="carpricethree" required>
-                <input type="submit" value="Submit" onclick="carValidate()" /></br>
+                <input type="submit" class="submitButton" value="Submit" onclick="carValidate()" /></br>
 
                 <h2>Car Four</h2>
                 <label>Make: </label><input type="text" name="carmakefour" required>
                 <label>Model: </label><input type="text" name="carmodelfour" required>
                 <label>Year: </label><input type="number" name="caryearfour" required>
                 <label>Price: </label><input type="number" name="carpricefour" required>
-                <input type="submit" value="Submit" onclick="carValidate()" /></br>
+                <input type="submit" class="submitButton" value="Submit" onclick="carValidate()" /></br>
                 </form>"""
 
         if self.request.GET:

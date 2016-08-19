@@ -24,7 +24,7 @@ class InputCars(object):
         #determines highest priced car from car prices passed to array
         highestprice = max(price)
 
-        return 'The most expensive car you own costs ' + str(highestprice) + "!"
+        return 'The most expensive car you own costs $' + str(highestprice) + "!"
 
 class CarData(object): #Data Object
     def __init__(self):
