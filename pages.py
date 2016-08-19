@@ -11,10 +11,9 @@ class Page(object):
     </head>
     <body>
         """
-        
+
         self.body = ""
         self.__close = """
-                </form>
             </body>
         </html>"""
 

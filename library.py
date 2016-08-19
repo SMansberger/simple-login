@@ -32,10 +32,10 @@ class FavoriteMovies(object):
 
         #return span
 
-class MovieData(object): #Data Object
+class CarData(object): #Data Object
     def __init__(self):
         self.title = ''
-        self.__year = 0 #check for valid year
+        self.__year = 0
         self.director = ''
 
     @property
@@ -44,7 +44,7 @@ class MovieData(object): #Data Object
 
     @year.setter
     def year(self, y):
-        if y > 2016: #if date is not valid
+        if y > 2017: #if date is not valid
             print "Error: Enter a valid year!"
         else:
             self.__year = y
